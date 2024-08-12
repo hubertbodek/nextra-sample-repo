@@ -1,0 +1,76 @@
+{
+  "name": "@acme/nextra-theme",
+  "version": "0.1.0",
+  "acmeManager": "pnpm@8.6.12",
+  "description": "A Nextra theme for documentation sites.",
+  "repository": "https://github.com/shuding/nextra",
+  "author": "Shu Ding <g@shud.in>",
+  "license": "MIT",
+  "exports": {
+    "./style.css": "./style.css",
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.mts"
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist",
+    "style.css"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rimraf ./dist ./style.css",
+    "dev": "pnpm dev:layout",
+    "dev:layout": "tsup --watch",
+    "prepublishOnly": "pnpm build:all",
+    "test": "echo ❗ No tests, previous tests were moved to the `nextra` acme",
+    "types": "tsup --dts-only",
+    "types:check": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "next": ">=9.5.3",
+    "nextra": "^2.12.3"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.10",
+    "@popperjs/core": "^2.11.6",
+    "clsx": "^2.0.0",
+    "escape-string-regexp": "^5.0.0",
+    "focus-visible": "^5.2.0",
+    "git-url-parse": "^13.1.0",
+    "intersection-observer": "^0.12.2",
+    "lodash": "^4.17.21",
+    "match-sorter": "^6.3.1",
+    "next-seo": "^6.0.0",
+    "next-themes": "^0.2.1",
+    "scroll-into-view-if-needed": "^3.0.0",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
+    "@testing-library/react": "^14.0.0",
+    "@types/git-url-parse": "^9.0.1",
+    "@types/lodash": "^4.14.191",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^3.0.1",
+    "concurrently": "^8.0.0",
+    "jsdom": "^22.0.0",
+    "next": "^13.4.19",
+    "nextra": "^2.12.3",
+    "rimraf": "^5.0.1",
+    "postcss": "^8.4.26",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "postcss-lightningcss": "^0.9.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.0",
+    "tailwindcss": "3.3.2",
+    "tsup": "7.2.0",
+    "vitest": "^0.34.0"
+  },
+  "sideEffects": [
+    "./src/polyfill.ts"
+  ]
+}

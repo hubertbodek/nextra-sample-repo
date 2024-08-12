@@ -1,0 +1,529 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@config '../../tailwind.base.config.js';
+
+@layer base {
+  :root {
+    --yellow-50: 53 94% 93%;
+    --yellow-100: 53 94% 86%;
+    --yellow-200: 53 96% 79%;
+    --yellow-300: 53 96% 72%;
+    --yellow-400: 53 95% 65%;
+    --yellow-500: 53, 96%, 59%;
+    --yellow-600: 53 68% 49%;
+    --yellow-700: 53 68% 39%;
+    --yellow-800: 53 68% 29%;
+    --yellow-900: 53 68% 19%;
+
+    --dark-300: 53 4% 40%;
+    --dark-400: 54 8% 25%;
+    --dark-500: 55 22% 11%;
+    --dark-600: 54 23% 9%;
+    --dark-700: 53, 22%, 7%;
+
+    --gray-100: 47 45% 92%;
+    --gray-200: 46 21% 84%;
+    --gray-300: 46 14% 76%;
+    --gray-400: 49 10% 68%;
+    --gray-500: 49 8% 60%;
+    --gray-600: 51 6% 51%;
+    --gray-700: 51 6% 43%;
+    --gray-800: 51 8% 35%;
+    --gray-900: 55 9% 27%;
+    --gray-950: 55 14% 19%;
+
+    --green-500: 133 38% 56%;
+    --olive-500: 56 14% 46%;
+    --off-white-500: 47 45% 92%;
+
+    --code-green-dark: 154 33% 11%;
+
+    --danger-50: 350 60% 10%;
+    --danger-500: 358 68% 52%;
+    --info-50: 213 32% 10%;
+    --info-500: 212 67% 64%;
+    --success-50: 123 30% 60%;
+    --success-500: 123 30% 60%;
+    --warning-50: 39 68% 7%;
+    --warning-500: 39 85% 57%;
+
+    /*  TODO: change from defualt shadcn values*/
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: ;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+
+    --body-1-font-size: 1rem;
+    --body-1-line-height: 1.5rem;
+    --body-1-mobile-font-size: 0.875rem;
+    --body-1-mobile-line-height: 1.25rem;
+    --body-2-font-size: 0.875rem;
+    --body-2-line-height: 1.25rem;
+    --body-2-mobile-font-size: 0.8125rem;
+    --body-2-mobile-line-height: 1.25rem;
+    --body-3-font-size: 0.75rem;
+    --body-3-line-height: 1rem;
+    --button-large-font-size: 0.875rem;
+    --button-large-line-height: 1rem;
+    --button-small-font-size: 0.75rem;
+    --button-small-line-height: 0.75rem;
+    --h1-font-size: 3rem;
+    --h1-line-height: 4rem;
+    --h1-mobile-font-size: 2.5rem;
+    --h1-mobile-line-height: 3.5rem;
+    --h2-font-size: 3rem;
+    --h2-line-height: 3.5rem;
+    --h2-mobile-font-size: 2rem;
+    --h2-mobile-line-height: 2.75rem;
+    --h3-font-size: 2rem;
+    --h3-line-height: 2.75rem;
+    --h3-mobile-font-size: 1.5rem;
+    --h3-mobile-line-height: 2.25rem;
+    --h4-font-size: 1.5rem;
+    --h4-line-height: 2.25rem;
+    --h4-mobile-font-size: 1.25rem;
+    --h4-mobile-line-height: 1.875rem;
+    --h5-font-size: 1.25rem;
+    --h5-line-height: 1.875rem;
+    --h5-mobile-font-size: 1.125rem;
+    --h5-mobile-line-height: 1.5rem;
+    --subhead-1-font-size: 1.25rem;
+    --subhead-1-line-height: 1.75rem;
+    --subhead-1-mobile-font-size: 1rem;
+    --subhead-1-mobile-line-height: 1.5rem;
+    --tag-font-size: 0.875rem;
+    --tag-line-height: 1.125rem;
+    --tag-2-font-size: 0.75rem;
+    --tag-2-line-height: 1rem;
+    --quote-large-font-size: 1.5rem;
+    --quote-large-line-height: 2.5rem;
+    --quote-large-mobile-font-size: 1rem;
+    --quote-large-mobile-line-height: 1.75rem;
+    --quote-small-font-size: 1rem;
+    --quote-small-line-height: 1.375rem;
+
+    /* Consts */
+
+    --header-height: 84px;
+    --banner-height: 40px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  /* fixes layout shifts caused by radix internal styles applied when popover element is rendered */
+  html {
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
+    scroll-padding-top: calc(var(--header-height) + var(--banner-height));
+  }
+
+  body[style] {
+    margin-right: 0 auto !important;
+    overflow-y: visible !important;
+  }
+
+  /* This is a workaround for a bug in Radix Select component that
+  sets the body's overflow to hidden which brakes the website's sticky navigation.
+  There's a discussion about this here: https://github.com/radix-ui/primitives/issues/1000 */
+  html body[data-scroll-locked] {
+    overflow: visible !important;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+}
+
+@layer components {
+  .nav-list:has(.nav-item:hover) .nav-item:not(:hover),
+  .nav-list:has([data-state="open"]) .nav-item:not([data-state="open"]) {
+    opacity: 0.3;
+  }
+
+  .navigation-menu-item {
+    @apply text-brand-gray-500 transition-opacity;
+  }
+
+  .cta-shape {
+    clip-path: polygon(0 0, 100% 0, 100% 72%, 56% 100%, 0 100%, 0% 50%);
+    @apply -mt-px;
+  }
+
+  .button-sm {
+    clip-path: polygon(
+      10px 0,
+      100% 0,
+      100% 10px,
+      calc(100% - 10px) 100%,
+      0 100%,
+      0% calc(100% - 10px)
+    );
+  }
+
+  .button-md {
+    clip-path: polygon(
+      11px 0,
+      100% 0,
+      100% 11px,
+      calc(100% - 11px) 100%,
+      0 100%,
+      0% calc(100% - 11px)
+    );
+  }
+
+  .button-lg {
+    clip-path: polygon(
+      13px 0,
+      100% 0,
+      100% 13px,
+      calc(100% - 13px) 100%,
+      0 100%,
+      0% calc(100% - 13px)
+    );
+  }
+
+  .button-icon {
+    clip-path: polygon(
+      8.8px 0,
+      100% 0,
+      100% 8.8px,
+      calc(100% - 8.8px) 100%,
+      0 100%,
+      0% calc(100% - 8.8px)
+    );
+  }
+
+  .button-size-sm {
+    @apply button-sm h-8 gap-2.5 px-7 text-button-small;
+  }
+
+  .takeaway-wrapper {
+    counter-reset: takeaway;
+  }
+
+  .takeaway-item::before {
+    @apply flex h-10 w-10 items-center justify-center border border-brand-dark-400 bg-brand-dark-600 text-brand-yellow-500;
+    counter-increment: takeaway;
+    content: "# " counter(takeaway);
+  }
+
+  /* Hubspot */
+  .hs-base-form {
+    @apply w-full;
+
+    .hs-button {
+      @apply button-lg mt-6 flex h-12 flex-nowrap items-center justify-center gap-2.5 whitespace-nowrap bg-brand-yellow-500 fill-brand-dark-500 px-9 font-mono text-button-large font-bold uppercase text-brand-dark-500 ring-offset-background transition-colors duration-300 ease-in-out hover:bg-brand-yellow-500/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+    }
+
+    .hs-button[type="submit"] {
+      @apply cursor-pointer bg-brand-yellow-500 hover:bg-brand-yellow-500/80;
+    }
+
+    .hs-form-field {
+      @apply mt-4;
+    }
+
+    .hs-form-field > label {
+      @apply font-sans text-body2-mobile text-white md:text-body2;
+    }
+
+    .hs-main-font-element {
+      @apply font-sans;
+    }
+
+    .hs_error_rollup {
+      @apply hidden text-brand-yellow-400;
+    }
+
+    .hs-error-msgs {
+      @apply font-sans text-brand-danger-500;
+    }
+
+    .hs-error-msg {
+      @apply text-body3;
+    }
+
+    .hs_error_rollup {
+      @apply mt-4;
+    }
+
+    .hs-input {
+      @apply mt-2 flex min-h-[48px] gap-2.5 border border-brand-dark-500 bg-brand-dark-600 p-4 font-sans text-[0.75rem] leading-4 text-white outline-none transition-[border-color] duration-300 ease-in-out placeholder:text-brand-gray-300 placeholder:transition-[color] placeholder:duration-300 placeholder:ease-in-out focus-within:border-brand-dark-400 hover:placeholder:text-white;
+    }
+
+    .hs-input {
+      width: 100% !important;
+    }
+
+    .hs-fieldtype-textarea {
+      @apply min-h-[104px];
+    }
+
+    .hs-richtext {
+      @apply mt-6 font-sans text-body2-mobile text-brand-gray-300 md:text-body2;
+    }
+
+    .hs-richtext a {
+      @apply text-brand-yellow-500;
+    }
+
+    .form-columns-1 {
+      max-width: none !important;
+    }
+
+    .form-columns-2 {
+      @apply flex flex-col md:flex-row md:gap-4;
+    }
+
+    .form-columns-2 {
+      max-width: none !important;
+    }
+
+    .form-columns-2 .hs-form-field {
+      width: 100% !important;
+    }
+
+    .input {
+      margin: 0 !important;
+    }
+
+    .submitted-message {
+      @apply mt-6 font-sans text-body2-mobile text-brand-gray-300 md:text-body2;
+    }
+  }
+
+  .hs-newsletter-form {
+    .hs-button {
+      @apply button-sm mx-auto mt-4 flex h-8 flex-nowrap items-center justify-center gap-2.5 whitespace-nowrap bg-brand-gray-950 fill-brand-yellow-500 px-7 font-mono text-button-small font-bold uppercase leading-4 text-brand-yellow-500 ring-offset-background transition-colors duration-300 ease-in-out hover:bg-brand-gray-950/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+    }
+
+    .hs-button[type="submit"] {
+      @apply cursor-pointer bg-brand-gray-950 text-brand-yellow-500 hover:bg-brand-gray-950/80;
+    }
+
+    .hs-form-field {
+      @apply mt-0;
+    }
+
+    .hs-input {
+      @apply mt-2 flex min-h-[48px] w-full gap-2.5 border border-brand-dark-500 bg-brand-dark-700 px-4 py-2 font-sans text-[0.75rem] leading-4 text-white outline-none transition-[border-color] duration-300 ease-in-out placeholder:text-brand-gray-300 placeholder:transition-[color] placeholder:duration-300 placeholder:ease-in-out focus-within:border-brand-dark-400 hover:placeholder:text-white;
+    }
+
+    .submitted-message {
+      @apply text-center;
+    }
+  }
+
+  .hs-newsletter-form-footer {
+    .hs-button {
+      @apply mx-auto md:ml-auto md:mr-0;
+    }
+
+    .submitted-message {
+      @apply text-center md:text-right xl:text-center;
+    }
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  /* Hide spinner for number inputs */
+  .no-spinner::-webkit-outer-spin-button,
+  .no-spinner::-webkit-inner-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+  }
+
+  .no-spinner {
+    -moz-appearance: textfield;
+  }
+
+  @property --rg-color {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #fbe33210;
+  }
+
+  .glow-gradient-to-br {
+    background: radial-gradient(at 100% 100%, var(--rg-color), #010101);
+  }
+
+  .glow-gradient-to-b {
+    background: linear-gradient(to top, var(--rg-color), #010101);
+  }
+
+  .glow-gradient-to-bl {
+    background: radial-gradient(at left bottom, var(--rg-color), #010101);
+  }
+
+  .glow-gradient-to-br,
+  .glow-gradient-to-b,
+  .glow-gradient-to-bl {
+    transition: --rg-color 0.2s ease-in-out;
+  }
+
+  .glow-gradient-to-br:hover,
+  .glow-gradient-to-b:hover,
+  .glow-gradient-to-bl:hover {
+    --rg-color: #fbe33220;
+  }
+
+  .glow-gradient-circle {
+    background-image: radial-gradient(
+      circle,
+      hsl(var(--yellow-500)) 1%,
+      rgba(0, 0, 0, 0) 75%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  .masked {
+    --mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0,
+        rgba(0, 0, 0, 1) 128px,
+        rgba(0, 0, 0, 1) 50%,
+        rgba(0, 0, 0, 0) 51%
+      ),
+      linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0) 0,
+        rgba(0, 0, 0, 1) 128px,
+        rgba(0, 0, 0, 1) 50%,
+        rgba(0, 0, 0, 0) 51%
+      );
+    mask-image: var(--mask-image);
+    -webkit-mask-image: var(--mask-image);
+  }
+
+  .masked-left {
+    --mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0,
+        rgba(0, 0, 0, 1) 128px,
+        rgba(0, 0, 0, 1) 50%,
+        rgba(0, 0, 0, 0) 51%
+      ),
+      linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0) 0,
+        rgba(0, 0, 0, 1) 0px,
+        rgba(0, 0, 0, 1) 50%,
+        rgba(0, 0, 0, 0) 51%
+      );
+    mask-image: var(--mask-image);
+    -webkit-mask-image: var(--mask-image);
+  }
+
+  .masked-right {
+    --mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0,
+        rgba(0, 0, 0, 1) 0px,
+        rgba(0, 0, 0, 1) 50%,
+        rgba(0, 0, 0, 0) 51%
+      ),
+      linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0) 0,
+        rgba(0, 0, 0, 1) 128px,
+        rgba(0, 0, 0, 1) 50%,
+        rgba(0, 0, 0, 0) 51%
+      );
+    mask-image: var(--mask-image);
+    -webkit-mask-image: var(--mask-image);
+  }
+
+  .masked-vertical {
+    --mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0,
+        rgba(0, 0, 0, 1) 30px,
+        rgba(0, 0, 0, 1) 50%,
+        rgba(0, 0, 0, 0) 51%
+      ),
+      linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0) 0,
+        rgba(0, 0, 0, 1) 30px,
+        rgba(0, 0, 0, 1) 50%,
+        rgba(0, 0, 0, 0) 51%
+      );
+    mask-image: var(--mask-image);
+    -webkit-mask-image: var(--mask-image);
+  }
+
+  .zoom-in {
+    animation: zoom-in 0.7s ease-in forwards;
+  }
+
+  @keyframes zoom-in {
+    0% {
+      transform: scale(0);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .language-glow {
+    @apply text-white;
+    animation: blinking-glow 1.5s ease-in-out infinite alternate;
+  }
+
+  .language-glow:hover {
+    animation: none;
+    transform: scale(1.5);
+    transition: all 0.1s ease-in;
+    color: hsl(var(--yellow-500));
+  }
+
+  @keyframes blinking-glow {
+    0% {
+      filter: drop-shadow(0px 0px 10px rgba(251, 227, 49, 0.5));
+    }
+
+    100% {
+      filter: drop-shadow(0px 0px 0px rgba(251, 227, 49, 1));
+    }
+  }
+
+  .mobile-navigation-opened {
+    @apply h-full overflow-hidden;
+  }
+}

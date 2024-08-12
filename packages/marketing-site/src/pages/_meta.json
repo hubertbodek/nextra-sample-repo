@@ -1,0 +1,10 @@
+{
+  "changelog": {
+    "title": "Changelog",
+    "theme": {
+      "breadcrumb": false,
+      "toc": false
+    },
+    "type": "page"
+  }
+}

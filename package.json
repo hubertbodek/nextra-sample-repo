@@ -1,0 +1,16 @@
+{
+  "name": "@acme-api/root",
+  "acmeManager": "pnpm@8.6.12",
+  "license": "UNLICENSED",
+  "private": true,
+  "workspaces": [
+    "acmes/*"
+  ],
+  "dependencies": {
+    "typescript": "5.1.6"
+  },
+  "scripts": {
+    "bootstrap": "corepack prepare pnpm@latest --activate && pnpm install -r",
+    "lint:fix": "tsc --noemit && eslint \"./acmes\" --ext .ts,.tsx, --fix"
+  }
+}

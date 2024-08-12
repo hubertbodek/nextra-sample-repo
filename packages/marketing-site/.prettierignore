@@ -1,0 +1,5 @@
+public
+src/pages/docs
+src/pages/post
+src/**/*.mdx
+src/**/*.md

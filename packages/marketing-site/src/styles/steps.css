@@ -1,0 +1,21 @@
+.nextra-steps {
+  @apply nx-ml-4 nx-pl-12 nx-mb-12 nx-border-l !nx-border-brand-dark-300;
+}
+
+.nextra-steps p {
+  @apply nx-mt-2 nx-text-brand-gray-300;
+}
+
+.nextra-steps h3 {
+  @apply nx-text-h5;
+
+  counter-increment: step;
+
+  &:before {
+    @apply nx-flex nx-justify-center nx-items-center nx-absolute nx-w-[33px] nx-h-[33px];
+    @apply nx-border nx-border-brand-yellow-500 nx-bg-brand-dark-600 nx-outline nx-outline-8 nx-outline-brand-dark-500;
+    @apply nx-rounded-full nx-text-brand-yellow-500 nx-text-base nx-font-normal nx-text-center -nx-indent-px;
+    @apply nx-mt-[-3px] nx-ml-[-64px];
+    content: counter(step);
+  }
+}

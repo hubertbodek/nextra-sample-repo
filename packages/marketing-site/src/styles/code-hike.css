@@ -1,0 +1,108 @@
+/*
+  Override the default step border color.
+*/
+.ch-scrollycoding-step-content {
+  border-width: 1px;
+  border-color: transparent;
+
+  & h3 {
+    margin-top: 0 !important;
+  }
+  &[data-selected],
+  &:hover {
+    border-width: 1px;
+    border-radius: 0;
+  }
+  &:hover {
+    border-color: hsla(var(--yellow-500), 0.25);
+  }
+  &[data-selected] {
+    border-color: hsl(var(--yellow-500));
+  }
+}
+
+/*
+  Override min height of code block while scrolling.
+  This is to make sure longer code blocks don't get cut off
+  when scrolling.
+  Based on https://github.com/code-hike/codehike/issues/184#issuecomment-1149836969
+  Set the height to 100vh - 84px (header height) - 36px (footer height) - 36px (padding) = calc(100vh - 156px)
+  Position the code block absolutely and set the top to 84px (header height) + 36px (padding) = 120px
+*/
+.ch-scrollycoding-full-height {
+  --ch-scrollycoding-code-min-height: calc(100vh - 156px);
+}
+
+.ch-scrollycoding-full-height:not(.ch-scrollycoding-force-focus-scroll)
+  .ch-scrollycoding-sticker
+  .ch-code-scroll-content {
+  > * {
+    transform: none !important;
+  }
+}
+
+/*
+  Set the height to 100vh - 84px (header height) - 36px (footer height) - 36px (padding) = calc(100vh - 156px)
+  Position the code block absolutely and set the top to 84px (header height) + 36px (padding) = 120px
+*/
+.ch-scrollycoding-sticker {
+  max-height: calc(100vh - 156px);
+  top: 120px;
+  width: 50%;
+
+  .ch-code-wrapper {
+    padding: 16px 0;
+  }
+}
+
+.ch-codeblock,
+.ch-codegroup {
+  width: 100% !important;
+
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  .ch-code-button,
+  .ch-editor-button {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    color: hsl(var(--yellow-500));
+  }
+
+  &:hover {
+    .ch-code-button,
+    .ch-editor-button {
+      opacity: 1;
+    }
+  }
+}
+
+.ch-code-scroll-parent {
+  width: 100% !important;
+}
+
+/*
+  Set the height to 100vh - 84px (header height) - 36px (footer height) - 36px (padding) = calc(100vh - 156px)
+*/
+.ch-scrollycoding-sticker .ch-codeblock,
+.ch-scrollycoding-sticker .ch-codegroup {
+  max-height: calc(100vh - 156px);
+}
+
+.ch-code-scroll-content {
+  font-family: var(--font-jetbrains-mono);
+}
+
+.ch-spotlight-tab {
+  border-radius: 0;
+  border: 1px solid hsl(var(--gray-900));
+  padding: 0 1rem 1rem 1rem;
+
+  &:hover {
+    border-color: hsl(var(--yellow-500));
+  }
+}
+
+.ch-spotlight-tab[data-selected] {
+  border-color: hsl(var(--yellow-500));
+}

@@ -1,0 +1,155 @@
+.browserBar {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #1e1e1e;
+  color: #bbb;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2); /* Dark overlay with 20% opacity */
+  z-index: 1; /* Ensure the overlay is on top of the image */
+}
+
+.url {
+  overflow: hidden;
+  max-height: 15px;
+  white-space: nowrap;
+}
+
+.browserIconsLeft,
+.browserIconsRight {
+  display: flex;
+  align-items: center;
+}
+
+.browserIconsLeft {
+  margin-right: auto;
+}
+
+.browserIconsRight {
+  margin-left: auto;
+  margin-right: -8px;
+}
+
+.browserControls {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  color: #6a737d;
+  margin-right: 8px;
+  font-size: 12px;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.red {
+  background-color: #ff5f56;
+}
+
+.yellow {
+  background-color: #ffbd2e;
+}
+
+.green {
+  background-color: #27c93f;
+}
+
+.browserAddress {
+  display: flex;
+  align-items: center;
+  padding: 2px 8px;
+  border: 1px solid #2c2c2c;
+  border-radius: 4px;
+  flex-grow: 1;
+  justify-content: center;
+  color: #bbb;
+  font-size: 10px;
+  width: 500px;
+}
+
+.lockIcon {
+  margin-right: 4px;
+  font-size: 10px;
+}
+
+.externalLinkIcon {
+  margin-left: 4px;
+  font-size: 10px;
+}
+
+.container {
+  border-radius: 8px;
+  margin: 20px 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+.terminalBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #36352a; /* acme Terminal bg color */
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+.terminalIconsLeft {
+  display: flex;
+  align-items: center;
+}
+
+.terminalCircle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.terminalRed {
+  background-color: #ff5f56;
+}
+
+.terminalYellow {
+  background-color: #ffbd2e;
+}
+
+.terminalGreen {
+  background-color: #27c93f;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.clickableArea {
+  z-index: 2; /* Ensure the clickable area is above the overlay */
+  position: relative; /* Ensure positioning context */
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.5;
+}
+
+.disabledLink {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
