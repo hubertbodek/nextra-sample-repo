@@ -1,4 +1,4 @@
-To reproduce, go to the `web/packages/marketing-site` directory and run:
+To reproduce, go to the `packages/marketing-site` directory and run:
 
 ```bash
 pnpm install
