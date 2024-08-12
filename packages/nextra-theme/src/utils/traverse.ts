@@ -6,10 +6,6 @@ export default function traverse(
   route: string,
   matcher: (page: PageMapItem, route: string) => boolean | void,
 ): PageMapItem | null {
-  if (!pageMap?.length) {
-    return null;
-  }
-
   for (const pageMapItem of pageMap) {
     if (matcher(pageMapItem, route)) {
       return pageMapItem;

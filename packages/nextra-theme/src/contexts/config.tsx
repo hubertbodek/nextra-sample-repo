@@ -46,8 +46,6 @@ function normalizeZodMessage(error: unknown): string {
 }
 
 function validateMeta(pageMap: PageMapItem[]) {
-  if (!pageMap) return;
-
   for (const pageMapItem of pageMap) {
     if (pageMapItem.kind === "Meta") {
       for (const [key, data] of Object.entries(pageMapItem.data)) {
