@@ -1,7 +1,5 @@
 import type { HTMLAttributes } from "react";
-import Image from "next/image";
 import { cn } from "~/utils/cn";
-import gridStarsFeatures from "/public/media/home/grid-stars-features.png";
 
 interface ColumnLayoutProps extends HTMLAttributes<HTMLDivElement> {
   rows: {
@@ -30,15 +28,7 @@ export const ColumnLayout = ({ rows, ...props }: ColumnLayoutProps) => {
             >
               {row.item1.node}
             </div>
-            <div className="absolute left-1/2 top-1/2 h-[897px] w-[897px] -translate-x-1/2 -translate-y-1/2">
-              <Image
-                src={gridStarsFeatures}
-                alt="Background image"
-                width={897}
-                height={897}
-                loading="lazy"
-              />
-            </div>
+            <div className="absolute left-1/2 top-1/2 h-[897px] w-[897px] -translate-x-1/2 -translate-y-1/2"></div>
           </div>
           <div
             className={cn(

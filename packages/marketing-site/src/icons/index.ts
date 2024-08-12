@@ -1,5 +1,4 @@
 export * from "./src/ArrowIcon";
-export * as brandIcon from "./src/brand-icon.svg";
 export * as checkIcon from "./src/check-icon.svg";
 export * as chevronLeft from "./src/chevron-left.svg";
 export * as chevronRight from "./src/chevron-right.svg";

@@ -1,7 +1,5 @@
 import type { HTMLAttributes } from "react";
-import Image from "next/image";
 import { cn } from "~/utils/cn";
-import gridStarsCta from "/public/media/shared/grid-stars-cta.png";
 
 export const GridImageBackground = ({
   className,
@@ -14,13 +12,6 @@ export const GridImageBackground = ({
         className,
       )}
       {...props}
-    >
-      <Image
-        src={gridStarsCta}
-        alt="Background image"
-        width={704}
-        height={704}
-      />
-    </div>
+    ></div>
   );
 };
